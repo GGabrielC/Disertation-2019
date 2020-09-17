@@ -1,0 +1,1584 @@
+def threeWayCompare(data, epochs):
+    r1, r2 = HuCnnModel(BuilderM_inHuConv_MNIST()).train(data, epochs)
+    r3 = ANN(BuilderCNN_MNIST(71)).train(data, epochs)
+    return r1,r2,r3
+
+------>>>    iteratedThreeWayCompare RESULTS:
+[1, [0.05636646226304874, 0.9836], [0.04442292606491537, 0.9865], [0.06418045422089198, 0.9825]]
+[1, [0.06578251234397758, 0.9823], [0.05200985969694011, 0.9847], [0.05845484725216302, 0.9835]]
+[1, [0.0587059234440123, 0.9835], [0.04491332568563521, 0.987], [0.06299437874176801, 0.9811]]
+[1, [0.05829146131826347, 0.9826], [0.052198993262141447, 0.9861], [0.05623686488409876, 0.9844]]
+[1, [0.08091635634070553, 0.9772], [0.05497533801162499, 0.9839], [0.10347251256455202, 0.9713]]
+[1, [0.10749684803723357, 0.9683], [0.05156038365627064, 0.9847], [0.05138495819957825, 0.9872]]
+[1, [0.07237858263443922, 0.9791], [0.05824423596312991, 0.9838], [0.060258074740290615, 0.9813]]
+[1, [0.08283855006184894, 0.9752], [0.0660874374322666, 0.9834], [0.09316249339649803, 0.9722]]
+[1, [0.06863851374743245, 0.9819], [0.04862161354732307, 0.9871], [0.06231188402326952, 0.9827]]
+[1, [0.0628199532115308, 0.9827], [0.053587048809848783, 0.9856], [0.05507552252883761, 0.9864]]
+[1, [0.05414181895353249, 0.9826], [0.04143356064431428, 0.9873], [0.05784952636481685, 0.9852]]
+[1, [0.057418201466987374, 0.9844], [0.05149735973826791, 0.9859], [0.09754751573790636, 0.9735]]
+[2, [0.04228296309569232, 0.9894], [0.03573961884893033, 0.9901], [0.04427511734871732, 0.9876]]
+[2, [0.040301622536819195, 0.9882], [0.03746719355236601, 0.9897], [0.04690764435142919, 0.9871]]
+[2, [0.04642223793087469, 0.9864], [0.03465362891760524, 0.9907], [0.05039584182588369, 0.9857]]
+[2, [0.05951543812584168, 0.9857], [0.04406879780637537, 0.9885], [0.04369776700811308, 0.9881]]
+[2, [0.05383850741833812, 0.9867], [0.04149486340704716, 0.988], [0.050802772536047994, 0.9842]]
+[2, [0.04265342890792308, 0.9884], [0.03736277122716165, 0.9893], [0.05147829303929757, 0.9855]]
+[3, [0.04124523272651786, 0.9895], [0.033319451455737725, 0.9915], [0.03926301060108271, 0.9887]]
+[3, [0.06048960347161337, 0.9852], [0.033459835350419964, 0.9918], [0.03507146269950026, 0.9903]]
+[3, [0.06227549698722651, 0.984], [0.04491061173238231, 0.9885], [0.056753739078505165, 0.9865]]
+[3, [0.04357404393173747, 0.9886], [0.032666340938145, 0.9917], [0.043373303221856986, 0.9871]]
+[6, [0.032787711976140416, 0.9908], [0.03401464335607488, 0.9916], [0.04163132763210451, 0.9886]]
+[6, [0.036982327892373, 0.9902], [0.031141053781606025, 0.9925], [0.03455383910653509, 0.9914]]
+[12, [0.02365160382186732, 0.9918], [0.03100918753879705, 0.9938], [0.033422006204897846, 0.9914]]
+[18, [0.04720125111376074, 0.989], [0.05491607415644048, 0.992], [0.0375697149109481, 0.9915]]
+
+
+
+
+(DizEnv) C:\Users\Gabriel\Diz\Proj>python main.py
+Using TensorFlow backend.
+WARNING:tensorflow:From C:\Users\Gabriel\Anaconda3\envs\DizEnv\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From C:\Users\Gabriel\Anaconda3\envs\DizEnv\lib\site-packages\keras\backend\tensorflow_backend.py:3445: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+WARNING:tensorflow:From C:\Users\Gabriel\Anaconda3\envs\DizEnv\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Epoch 1/1
+2019-05-26 02:37:31.864685: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+60000/60000 [==============================] - 133s 2ms/step - loss: 0.5449 - acc: 0.8323
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 811us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0564
+   -#--> test acc: 0.9836
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 2s 35us/step - loss: 0.1852 - acc: 0.9530
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 0s 21us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0444
+   -#--> test acc: 0.9865
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 153s 3ms/step - loss: 0.5500 - acc: 0.8310
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 777us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0642
+   -#--> test acc: 0.9825
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 163s 3ms/step - loss: 0.6042 - acc: 0.8165
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 824us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0658
+   -#--> test acc: 0.9823
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 3s 42us/step - loss: 0.1939 - acc: 0.9519
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 0s 29us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0520
+   -#--> test acc: 0.9847
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 149s 2ms/step - loss: 0.6014 - acc: 0.8369
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 794us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0585
+   -#--> test acc: 0.9835
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 146s 2ms/step - loss: 0.5725 - acc: 0.8271
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 7s 748us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0587
+   -#--> test acc: 0.9835
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 3s 55us/step - loss: 0.1771 - acc: 0.9550
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 0s 39us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0449
+   -#--> test acc: 0.9870
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 143s 2ms/step - loss: 0.5720 - acc: 0.8313
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 766us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0630
+   -#--> test acc: 0.9811
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 143s 2ms/step - loss: 0.5046 - acc: 0.8429
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 790us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0583
+   -#--> test acc: 0.9826
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 3s 52us/step - loss: 0.1401 - acc: 0.9637
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 0s 45us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0522
+   -#--> test acc: 0.9861
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 144s 2ms/step - loss: 0.5338 - acc: 0.8377
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 782us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0562
+   -#--> test acc: 0.9844
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 147s 2ms/step - loss: 0.5214 - acc: 0.8392
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 771us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0809
+   -#--> test acc: 0.9772
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 3s 58us/step - loss: 0.1832 - acc: 0.9530
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 57us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0550
+   -#--> test acc: 0.9839
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 145s 2ms/step - loss: 0.5512 - acc: 0.8361
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 800us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.1035
+   -#--> test acc: 0.9713
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 144s 2ms/step - loss: 0.5826 - acc: 0.8253
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 784us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.1075
+   -#--> test acc: 0.9683
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 4s 63us/step - loss: 0.1759 - acc: 0.9542
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 66us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0516
+   -#--> test acc: 0.9847
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 146s 2ms/step - loss: 0.5841 - acc: 0.8319
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 813us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0514
+   -#--> test acc: 0.9872
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 147s 2ms/step - loss: 0.5478 - acc: 0.8341
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 802us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0724
+   -#--> test acc: 0.9791
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 4s 69us/step - loss: 0.1843 - acc: 0.9542
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 76us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0582
+   -#--> test acc: 0.9838
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 154s 3ms/step - loss: 0.4921 - acc: 0.8493
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 868us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0603
+   -#--> test acc: 0.9813
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 146s 2ms/step - loss: 0.6253 - acc: 0.8021
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 829us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0828
+   -#--> test acc: 0.9752
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 4s 73us/step - loss: 0.2273 - acc: 0.9465
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 91us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0661
+   -#--> test acc: 0.9834
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 150s 3ms/step - loss: 0.8757 - acc: 0.8105
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 844us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0932
+   -#--> test acc: 0.9722
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 148s 2ms/step - loss: 0.5557 - acc: 0.8273
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 862us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0686
+   -#--> test acc: 0.9819
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 5s 81us/step - loss: 0.1659 - acc: 0.9576
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 93us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0486
+   -#--> test acc: 0.9871
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 148s 2ms/step - loss: 0.5606 - acc: 0.8266
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 865us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0623
+   -#--> test acc: 0.9827
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 151s 3ms/step - loss: 0.5863 - acc: 0.8242
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 869us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0628
+   -#--> test acc: 0.9827
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 5s 87us/step - loss: 0.1665 - acc: 0.9576
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 102us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0536
+   -#--> test acc: 0.9856
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 152s 3ms/step - loss: 0.5319 - acc: 0.8423
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 884us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0551
+   -#--> test acc: 0.9864
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 152s 3ms/step - loss: 0.5308 - acc: 0.8353
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 908us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0541
+   -#--> test acc: 0.9826
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 6s 92us/step - loss: 0.1834 - acc: 0.9559
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 119us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0414
+   -#--> test acc: 0.9873
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 152s 3ms/step - loss: 0.7000 - acc: 0.8294
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 925us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0578
+   -#--> test acc: 0.9852
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 153s 3ms/step - loss: 0.6092 - acc: 0.8161
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 903us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0574
+   -#--> test acc: 0.9844
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 6s 99us/step - loss: 0.1595 - acc: 0.9598
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 156us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0515
+   -#--> test acc: 0.9859
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/1
+60000/60000 [==============================] - 154s 3ms/step - loss: 0.8362 - acc: 0.8197
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 799us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0975
+   -#--> test acc: 0.9735
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 154s 3ms/step - loss: 0.5466 - acc: 0.8294
+Epoch 2/2
+60000/60000 [==============================] - 153s 3ms/step - loss: 0.1483 - acc: 0.9630
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 913us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0423
+   -#--> test acc: 0.9894
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 6s 106us/step - loss: 0.1414 - acc: 0.9655
+Epoch 2/2
+60000/60000 [==============================] - 4s 61us/step - loss: 0.0532 - acc: 0.9879
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 1s 143us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0357
+   -#--> test acc: 0.9901
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 156s 3ms/step - loss: 0.5507 - acc: 0.8417
+Epoch 2/2
+60000/60000 [==============================] - 156s 3ms/step - loss: 0.1445 - acc: 0.9644
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 837us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0443
+   -#--> test acc: 0.9876
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 157s 3ms/step - loss: 0.5346 - acc: 0.8362
+Epoch 2/2
+60000/60000 [==============================] - 153s 3ms/step - loss: 0.1541 - acc: 0.9613
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 8s 838us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0403
+   -#--> test acc: 0.9882
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 7s 111us/step - loss: 0.1485 - acc: 0.9656
+Epoch 2/2
+60000/60000 [==============================] - 4s 60us/step - loss: 0.0564 - acc: 0.9864
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 155us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0375
+   -#--> test acc: 0.9897
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 157s 3ms/step - loss: 0.6784 - acc: 0.8315
+Epoch 2/2
+60000/60000 [==============================] - 155s 3ms/step - loss: 0.1493 - acc: 0.9632
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 962us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0469
+   -#--> test acc: 0.9871
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 159s 3ms/step - loss: 0.6029 - acc: 0.8287
+Epoch 2/2
+60000/60000 [==============================] - 155s 3ms/step - loss: 0.1490 - acc: 0.9635
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 960us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0464
+   -#--> test acc: 0.9864
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 7s 119us/step - loss: 0.1577 - acc: 0.9613
+Epoch 2/2
+60000/60000 [==============================] - 4s 62us/step - loss: 0.0572 - acc: 0.9864
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 165us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0347
+   -#--> test acc: 0.9907
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 161s 3ms/step - loss: 0.6017 - acc: 0.8101
+Epoch 2/2
+60000/60000 [==============================] - 159s 3ms/step - loss: 0.1533 - acc: 0.9621
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 979us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0504
+   -#--> test acc: 0.9857
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 161s 3ms/step - loss: 0.7039 - acc: 0.8289
+Epoch 2/2
+60000/60000 [==============================] - 159s 3ms/step - loss: 0.1477 - acc: 0.9627
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0595
+   -#--> test acc: 0.9857
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 8s 136us/step - loss: 0.1785 - acc: 0.9572
+Epoch 2/2
+60000/60000 [==============================] - 4s 68us/step - loss: 0.0581 - acc: 0.9865
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 171us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0441
+   -#--> test acc: 0.9885
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 164s 3ms/step - loss: 0.5350 - acc: 0.8397
+Epoch 2/2
+60000/60000 [==============================] - 162s 3ms/step - loss: 0.1410 - acc: 0.9651
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 870us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0437
+   -#--> test acc: 0.9881
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 164s 3ms/step - loss: 0.6457 - acc: 0.8022
+Epoch 2/2
+60000/60000 [==============================] - 161s 3ms/step - loss: 0.1635 - acc: 0.9600
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0538
+   -#--> test acc: 0.9867
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 8s 141us/step - loss: 0.1599 - acc: 0.9623
+Epoch 2/2
+60000/60000 [==============================] - 5s 76us/step - loss: 0.0590 - acc: 0.9861
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 195us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0415
+   -#--> test acc: 0.9880
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 164s 3ms/step - loss: 0.5076 - acc: 0.8522
+Epoch 2/2
+60000/60000 [==============================] - 166s 3ms/step - loss: 0.1294 - acc: 0.9670
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 11s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0508
+   -#--> test acc: 0.9842
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 164s 3ms/step - loss: 0.6060 - acc: 0.8127
+Epoch 2/2
+60000/60000 [==============================] - 161s 3ms/step - loss: 0.1574 - acc: 0.9606
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 909us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0427
+   -#--> test acc: 0.9884
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 9s 153us/step - loss: 0.1791 - acc: 0.9591
+Epoch 2/2
+60000/60000 [==============================] - 5s 84us/step - loss: 0.0576 - acc: 0.9857
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 197us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0374
+   -#--> test acc: 0.9893
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/2
+60000/60000 [==============================] - 169s 3ms/step - loss: 0.6816 - acc: 0.7911
+Epoch 2/2
+60000/60000 [==============================] - 163s 3ms/step - loss: 0.1660 - acc: 0.9575
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 930us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0515
+   -#--> test acc: 0.9855
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 165s 3ms/step - loss: 0.6885 - acc: 0.8128
+Epoch 2/3
+60000/60000 [==============================] - 165s 3ms/step - loss: 0.1552 - acc: 0.9616
+Epoch 3/3
+60000/60000 [==============================] - 165s 3ms/step - loss: 0.1183 - acc: 0.9711
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 937us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0412
+   -#--> test acc: 0.9895
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 9s 158us/step - loss: 0.1828 - acc: 0.9617
+Epoch 2/3
+60000/60000 [==============================] - 5s 80us/step - loss: 0.0470 - acc: 0.9889
+Epoch 3/3
+60000/60000 [==============================] - 5s 83us/step - loss: 0.0406 - acc: 0.9901
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 223us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0333
+   -#--> test acc: 0.9915
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 172s 3ms/step - loss: 0.5903 - acc: 0.8176
+Epoch 2/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.1532 - acc: 0.9617
+Epoch 3/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.1155 - acc: 0.9716
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 996us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0393
+   -#--> test acc: 0.9887
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.6150 - acc: 0.8299
+Epoch 2/3
+60000/60000 [==============================] - 169s 3ms/step - loss: 0.1489 - acc: 0.9632
+Epoch 3/3
+60000/60000 [==============================] - 169s 3ms/step - loss: 0.1173 - acc: 0.9729
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 9s 946us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0605
+   -#--> test acc: 0.9852
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 10s 169us/step - loss: 0.1531 - acc: 0.9656
+Epoch 2/3
+60000/60000 [==============================] - 5s 84us/step - loss: 0.0486 - acc: 0.9886
+Epoch 3/3
+60000/60000 [==============================] - 5s 87us/step - loss: 0.0435 - acc: 0.9893
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 242us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0335
+   -#--> test acc: 0.9918
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 173s 3ms/step - loss: 0.5901 - acc: 0.8199
+Epoch 2/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.1501 - acc: 0.9629
+Epoch 3/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.1174 - acc: 0.9719
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 966us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0351
+   -#--> test acc: 0.9903
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 172s 3ms/step - loss: 0.5980 - acc: 0.8170
+Epoch 2/3
+60000/60000 [==============================] - 166s 3ms/step - loss: 0.1610 - acc: 0.9600
+Epoch 3/3
+60000/60000 [==============================] - 167s 3ms/step - loss: 0.1248 - acc: 0.9708
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0623
+   -#--> test acc: 0.9840
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 11s 186us/step - loss: 0.1958 - acc: 0.9591
+Epoch 2/3
+60000/60000 [==============================] - 5s 89us/step - loss: 0.0587 - acc: 0.9858
+Epoch 3/3
+60000/60000 [==============================] - 5s 91us/step - loss: 0.0555 - acc: 0.9867
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 2s 246us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0449
+   -#--> test acc: 0.9885
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 177s 3ms/step - loss: 0.6537 - acc: 0.8316
+Epoch 2/3
+60000/60000 [==============================] - 176s 3ms/step - loss: 0.1481 - acc: 0.9622
+Epoch 3/3
+60000/60000 [==============================] - 176s 3ms/step - loss: 0.1161 - acc: 0.9713
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 979us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0568
+   -#--> test acc: 0.9865
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 175s 3ms/step - loss: 0.5401 - acc: 0.8347
+Epoch 2/3
+60000/60000 [==============================] - 175s 3ms/step - loss: 0.1456 - acc: 0.9645
+Epoch 3/3
+60000/60000 [==============================] - 170s 3ms/step - loss: 0.1152 - acc: 0.9722
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0436
+   -#--> test acc: 0.9886
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 11s 187us/step - loss: 0.1823 - acc: 0.9605
+Epoch 2/3
+60000/60000 [==============================] - 5s 92us/step - loss: 0.0446 - acc: 0.9893
+Epoch 3/3
+60000/60000 [==============================] - 6s 102us/step - loss: 0.0419 - acc: 0.9902
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 3s 274us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0327
+   -#--> test acc: 0.9917
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/3
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.5847 - acc: 0.8244
+Epoch 2/3
+60000/60000 [==============================] - 178s 3ms/step - loss: 0.1571 - acc: 0.9617
+Epoch 3/3
+60000/60000 [==============================] - 173s 3ms/step - loss: 0.1156 - acc: 0.9707
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0434
+   -#--> test acc: 0.9871
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.5707 - acc: 0.8235
+Epoch 2/6
+60000/60000 [==============================] - 173s 3ms/step - loss: 0.1422 - acc: 0.9634
+Epoch 3/6
+60000/60000 [==============================] - 172s 3ms/step - loss: 0.1120 - acc: 0.9721
+Epoch 4/6
+60000/60000 [==============================] - 171s 3ms/step - loss: 0.1022 - acc: 0.9751
+Epoch 5/6
+60000/60000 [==============================] - 178s 3ms/step - loss: 0.0911 - acc: 0.9777
+Epoch 6/6
+60000/60000 [==============================] - 172s 3ms/step - loss: 0.0823 - acc: 0.9800
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 996us/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0328
+   -#--> test acc: 0.9908
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 12s 196us/step - loss: 0.2202 - acc: 0.9618
+Epoch 2/6
+60000/60000 [==============================] - 6s 98us/step - loss: 0.0386 - acc: 0.9908
+Epoch 3/6
+60000/60000 [==============================] - 6s 95us/step - loss: 0.0348 - acc: 0.9915
+Epoch 4/6
+60000/60000 [==============================] - 6s 102us/step - loss: 0.0317 - acc: 0.9927
+Epoch 5/6
+60000/60000 [==============================] - 6s 99us/step - loss: 0.0294 - acc: 0.9926
+Epoch 6/6
+60000/60000 [==============================] - 6s 95us/step - loss: 0.0289 - acc: 0.9928
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 3s 273us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0340
+   -#--> test acc: 0.9916
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 178s 3ms/step - loss: 0.5446 - acc: 0.8340
+Epoch 2/6
+60000/60000 [==============================] - 179s 3ms/step - loss: 0.1458 - acc: 0.9636
+Epoch 3/6
+60000/60000 [==============================] - 178s 3ms/step - loss: 0.1132 - acc: 0.9720
+Epoch 4/6
+60000/60000 [==============================] - 177s 3ms/step - loss: 0.0965 - acc: 0.9774
+Epoch 5/6
+60000/60000 [==============================] - 171s 3ms/step - loss: 0.0854 - acc: 0.9792
+Epoch 6/6
+60000/60000 [==============================] - 179s 3ms/step - loss: 0.0840 - acc: 0.9794
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 10s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0416
+   -#--> test acc: 0.9886
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 178s 3ms/step - loss: 0.6069 - acc: 0.8322
+Epoch 2/6
+60000/60000 [==============================] - 172s 3ms/step - loss: 0.1427 - acc: 0.9660
+Epoch 3/6
+60000/60000 [==============================] - 179s 3ms/step - loss: 0.1146 - acc: 0.9722
+Epoch 4/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.1003 - acc: 0.9755
+Epoch 5/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.0917 - acc: 0.9782
+Epoch 6/6
+60000/60000 [==============================] - 173s 3ms/step - loss: 0.0826 - acc: 0.9793
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 11s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0370
+   -#--> test acc: 0.9902
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 12s 208us/step - loss: 0.2082 - acc: 0.9640
+Epoch 2/6
+60000/60000 [==============================] - 6s 99us/step - loss: 0.0428 - acc: 0.9899
+Epoch 3/6
+60000/60000 [==============================] - 6s 102us/step - loss: 0.0363 - acc: 0.9915
+Epoch 4/6
+60000/60000 [==============================] - 6s 100us/step - loss: 0.0346 - acc: 0.9916
+Epoch 5/6
+60000/60000 [==============================] - 6s 99us/step - loss: 0.0325 - acc: 0.9919
+Epoch 6/6
+60000/60000 [==============================] - 6s 102us/step - loss: 0.0304 - acc: 0.9923
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 3s 308us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0311
+   -#--> test acc: 0.9925
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.6345 - acc: 0.8236
+Epoch 2/6
+60000/60000 [==============================] - 174s 3ms/step - loss: 0.1542 - acc: 0.9612
+Epoch 3/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.1189 - acc: 0.9708
+Epoch 4/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.0994 - acc: 0.9760
+Epoch 5/6
+60000/60000 [==============================] - 180s 3ms/step - loss: 0.0926 - acc: 0.9780
+Epoch 6/6
+60000/60000 [==============================] - 179s 3ms/step - loss: 0.0851 - acc: 0.9792
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 11s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0346
+   -#--> test acc: 0.9914
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/12
+60000/60000 [==============================] - 183s 3ms/step - loss: 0.5486 - acc: 0.8343
+Epoch 2/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.1463 - acc: 0.9630
+Epoch 3/12
+60000/60000 [==============================] - 181s 3ms/step - loss: 0.1126 - acc: 0.9731
+Epoch 4/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0972 - acc: 0.9763
+Epoch 5/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0926 - acc: 0.9782
+Epoch 6/12
+60000/60000 [==============================] - 181s 3ms/step - loss: 0.0847 - acc: 0.9791
+Epoch 7/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0835 - acc: 0.9798
+Epoch 8/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0730 - acc: 0.9819
+Epoch 9/12
+60000/60000 [==============================] - 181s 3ms/step - loss: 0.0712 - acc: 0.9830
+Epoch 10/12
+60000/60000 [==============================] - 181s 3ms/step - loss: 0.0720 - acc: 0.9829
+Epoch 11/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0697 - acc: 0.9836
+Epoch 12/12
+60000/60000 [==============================] - 182s 3ms/step - loss: 0.0658 - acc: 0.9843
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 13s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0237
+   -#--> test acc: 0.9918
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/12
+60000/60000 [==============================] - 14s 234us/step - loss: 0.2054 - acc: 0.9696
+Epoch 2/12
+60000/60000 [==============================] - 6s 105us/step - loss: 0.0337 - acc: 0.9928
+Epoch 3/12
+60000/60000 [==============================] - 6s 108us/step - loss: 0.0265 - acc: 0.9940
+Epoch 4/12
+60000/60000 [==============================] - 6s 106us/step - loss: 0.0240 - acc: 0.9945
+Epoch 5/12
+60000/60000 [==============================] - 6s 106us/step - loss: 0.0237 - acc: 0.9946
+Epoch 6/12
+60000/60000 [==============================] - 7s 113us/step - loss: 0.0228 - acc: 0.9948
+Epoch 7/12
+60000/60000 [==============================] - 7s 113us/step - loss: 0.0224 - acc: 0.9948
+Epoch 8/12
+60000/60000 [==============================] - 7s 116us/step - loss: 0.0219 - acc: 0.9950
+Epoch 9/12
+60000/60000 [==============================] - 6s 105us/step - loss: 0.0208 - acc: 0.9952
+Epoch 10/12
+60000/60000 [==============================] - 6s 105us/step - loss: 0.0204 - acc: 0.9954
+Epoch 11/12
+60000/60000 [==============================] - 7s 114us/step - loss: 0.0193 - acc: 0.9952
+Epoch 12/12
+60000/60000 [==============================] - 7s 113us/step - loss: 0.0197 - acc: 0.9956
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 3s 313us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0310
+   -#--> test acc: 0.9938
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/12
+60000/60000 [==============================] - 186s 3ms/step - loss: 0.5944 - acc: 0.8184
+Epoch 2/12
+60000/60000 [==============================] - 186s 3ms/step - loss: 0.1438 - acc: 0.9636
+Epoch 3/12
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.1121 - acc: 0.9730
+Epoch 4/12
+60000/60000 [==============================] - 183s 3ms/step - loss: 0.1003 - acc: 0.9760
+Epoch 5/12
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0882 - acc: 0.9790
+Epoch 6/12
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0817 - acc: 0.9805
+Epoch 7/12
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0755 - acc: 0.9816
+Epoch 8/12
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0714 - acc: 0.9831
+Epoch 9/12
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0713 - acc: 0.9820
+Epoch 10/12
+60000/60000 [==============================] - 183s 3ms/step - loss: 0.0714 - acc: 0.9826
+Epoch 11/12
+60000/60000 [==============================] - 183s 3ms/step - loss: 0.0601 - acc: 0.9857
+Epoch 12/12
+60000/60000 [==============================] - 183s 3ms/step - loss: 0.0662 - acc: 0.9842
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 11s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0334
+   -#--> test acc: 0.9914
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model
+   ----> Training CNN_MNIST Model
+Epoch 1/18
+60000/60000 [==============================] - 189s 3ms/step - loss: 0.6217 - acc: 0.8087
+Epoch 2/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.1476 - acc: 0.9634
+Epoch 3/18
+60000/60000 [==============================] - 179s 3ms/step - loss: 0.1148 - acc: 0.9717
+Epoch 4/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.1005 - acc: 0.9755
+Epoch 5/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0896 - acc: 0.9787
+Epoch 6/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0751 - acc: 0.9818
+Epoch 7/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0728 - acc: 0.9818
+Epoch 8/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0729 - acc: 0.9823
+Epoch 9/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0730 - acc: 0.9818
+Epoch 10/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0647 - acc: 0.9842
+Epoch 11/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0724 - acc: 0.9828
+Epoch 12/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0691 - acc: 0.9842
+Epoch 13/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0641 - acc: 0.9846
+Epoch 14/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0676 - acc: 0.9839
+Epoch 15/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0630 - acc: 0.9855
+Epoch 16/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0664 - acc: 0.9839
+Epoch 17/18
+60000/60000 [==============================] - 184s 3ms/step - loss: 0.0593 - acc: 0.9854
+Epoch 18/18
+60000/60000 [==============================] - 185s 3ms/step - loss: 0.0633 - acc: 0.9850
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 11s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0472
+   -#--> test acc: 0.9890
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   ----> Preprocessing Data
+   ----> Preprocessing Data DONE
+   ----> Training DNN_HuConv_MNIST Model
+Epoch 1/18
+60000/60000 [==============================] - 14s 235us/step - loss: 0.4096 - acc: 0.9575
+Epoch 2/18
+60000/60000 [==============================] - 7s 124us/step - loss: 0.0418 - acc: 0.9917
+Epoch 3/18
+60000/60000 [==============================] - 7s 111us/step - loss: 0.0332 - acc: 0.9925
+Epoch 4/18
+60000/60000 [==============================] - 7s 115us/step - loss: 0.0299 - acc: 0.9933
+Epoch 5/18
+60000/60000 [==============================] - 7s 121us/step - loss: 0.0271 - acc: 0.9937
+Epoch 6/18
+60000/60000 [==============================] - 7s 122us/step - loss: 0.0267 - acc: 0.9937
+Epoch 7/18
+60000/60000 [==============================] - 7s 121us/step - loss: 0.0249 - acc: 0.9939
+Epoch 8/18
+60000/60000 [==============================] - 7s 118us/step - loss: 0.0257 - acc: 0.9939
+Epoch 9/18
+60000/60000 [==============================] - 7s 124us/step - loss: 0.0234 - acc: 0.9943
+Epoch 10/18
+60000/60000 [==============================] - 7s 117us/step - loss: 0.0231 - acc: 0.9943
+Epoch 11/18
+60000/60000 [==============================] - 7s 112us/step - loss: 0.0222 - acc: 0.9942
+Epoch 12/18
+60000/60000 [==============================] - 7s 116us/step - loss: 0.0230 - acc: 0.9944
+Epoch 13/18
+60000/60000 [==============================] - 7s 118us/step - loss: 0.0210 - acc: 0.9950
+Epoch 14/18
+60000/60000 [==============================] - 7s 112us/step - loss: 0.0213 - acc: 0.9947
+Epoch 15/18
+60000/60000 [==============================] - 7s 117us/step - loss: 0.0207 - acc: 0.9949
+Epoch 16/18
+60000/60000 [==============================] - 7s 114us/step - loss: 0.0221 - acc: 0.9946
+Epoch 17/18
+60000/60000 [==============================] - 7s 116us/step - loss: 0.0210 - acc: 0.9948
+Epoch 18/18
+60000/60000 [==============================] - 7s 121us/step - loss: 0.0202 - acc: 0.9949
+   ----> Training DNN_HuConv_MNIST Model DONE
+
+   ----> Evaluating DNN_HuConv_MNIST
+10000/10000 [==============================] - 4s 419us/step
+
+   ---> Test Results DNN_HuConv_MNIST
+   -#--> test loss: 0.0549
+   -#--> test acc: 0.9920
+   ---> END Test Results DNN_HuConv_MNIST
+
+   ----> Evaluating DNN_HuConv_MNIST DONE
+   ----> Training M_inHuConv_MNIST Model DONE
+   ----> Training CNN_MNIST Model
+Epoch 1/18
+60000/60000 [==============================] - 187s 3ms/step - loss: 0.6745 - acc: 0.8316
+Epoch 2/18
+60000/60000 [==============================] - 187s 3ms/step - loss: 0.1501 - acc: 0.9623
+Epoch 3/18
+60000/60000 [==============================] - 200s 3ms/step - loss: 0.1114 - acc: 0.9715
+Epoch 4/18
+60000/60000 [==============================] - 200s 3ms/step - loss: 0.0936 - acc: 0.9765
+Epoch 5/18
+60000/60000 [==============================] - 197s 3ms/step - loss: 0.0880 - acc: 0.9795
+Epoch 6/18
+60000/60000 [==============================] - 203s 3ms/step - loss: 0.0824 - acc: 0.9796
+Epoch 7/18
+60000/60000 [==============================] - 200s 3ms/step - loss: 0.0754 - acc: 0.9818
+Epoch 8/18
+60000/60000 [==============================] - 196s 3ms/step - loss: 0.0735 - acc: 0.9821
+Epoch 9/18
+60000/60000 [==============================] - 196s 3ms/step - loss: 0.0632 - acc: 0.9843
+Epoch 10/18
+60000/60000 [==============================] - 192s 3ms/step - loss: 0.0689 - acc: 0.9825
+Epoch 11/18
+60000/60000 [==============================] - 213s 4ms/step - loss: 0.0665 - acc: 0.9835
+Epoch 12/18
+60000/60000 [==============================] - 206s 3ms/step - loss: 0.0639 - acc: 0.9840
+Epoch 13/18
+60000/60000 [==============================] - 200s 3ms/step - loss: 0.0606 - acc: 0.9851
+Epoch 14/18
+60000/60000 [==============================] - 202s 3ms/step - loss: 0.0642 - acc: 0.9847
+Epoch 15/18
+60000/60000 [==============================] - 194s 3ms/step - loss: 0.0593 - acc: 0.9853
+Epoch 16/18
+60000/60000 [==============================] - 191s 3ms/step - loss: 0.0624 - acc: 0.9849
+Epoch 17/18
+60000/60000 [==============================] - 205s 3ms/step - loss: 0.0611 - acc: 0.9856
+Epoch 18/18
+60000/60000 [==============================] - 191s 3ms/step - loss: 0.0578 - acc: 0.9852
+   ----> Training CNN_MNIST Model DONE
+
+   ----> Evaluating CNN_MNIST
+10000/10000 [==============================] - 14s 1ms/step
+
+   ---> Test Results CNN_MNIST
+   -#--> test loss: 0.0376
+   -#--> test acc: 0.9915
+   ---> END Test Results CNN_MNIST
+
+   ----> Evaluating CNN_MNIST DONE
+   -----> Nothing went wrong <-------
+------>>>    iteratedThreeWayCompare RESULTS:
+[1, [0.05636646226304874, 0.9836], [0.04442292606491537, 0.9865], [0.06418045422089198, 0.9825]]
+[1, [0.06578251234397758, 0.9823], [0.05200985969694011, 0.9847], [0.05845484725216302, 0.9835]]
+[1, [0.0587059234440123, 0.9835], [0.04491332568563521, 0.987], [0.06299437874176801, 0.9811]]
+[1, [0.05829146131826347, 0.9826], [0.052198993262141447, 0.9861], [0.05623686488409876, 0.9844]]
+[1, [0.08091635634070553, 0.9772], [0.05497533801162499, 0.9839], [0.10347251256455202, 0.9713]]
+[1, [0.10749684803723357, 0.9683], [0.05156038365627064, 0.9847], [0.05138495819957825, 0.9872]]
+[1, [0.07237858263443922, 0.9791], [0.05824423596312991, 0.9838], [0.060258074740290615, 0.9813]]
+[1, [0.08283855006184894, 0.9752], [0.0660874374322666, 0.9834], [0.09316249339649803, 0.9722]]
+[1, [0.06863851374743245, 0.9819], [0.04862161354732307, 0.9871], [0.06231188402326952, 0.9827]]
+[1, [0.0628199532115308, 0.9827], [0.053587048809848783, 0.9856], [0.05507552252883761, 0.9864]]
+[1, [0.05414181895353249, 0.9826], [0.04143356064431428, 0.9873], [0.05784952636481685, 0.9852]]
+[1, [0.057418201466987374, 0.9844], [0.05149735973826791, 0.9859], [0.09754751573790636, 0.9735]]
+[2, [0.04228296309569232, 0.9894], [0.03573961884893033, 0.9901], [0.04427511734871732, 0.9876]]
+[2, [0.040301622536819195, 0.9882], [0.03746719355236601, 0.9897], [0.04690764435142919, 0.9871]]
+[2, [0.04642223793087469, 0.9864], [0.03465362891760524, 0.9907], [0.05039584182588369, 0.9857]]
+[2, [0.05951543812584168, 0.9857], [0.04406879780637537, 0.9885], [0.04369776700811308, 0.9881]]
+[2, [0.05383850741833812, 0.9867], [0.04149486340704716, 0.988], [0.050802772536047994, 0.9842]]
+[2, [0.04265342890792308, 0.9884], [0.03736277122716165, 0.9893], [0.05147829303929757, 0.9855]]
+[3, [0.04124523272651786, 0.9895], [0.033319451455737725, 0.9915], [0.03926301060108271, 0.9887]]
+[3, [0.06048960347161337, 0.9852], [0.033459835350419964, 0.9918], [0.03507146269950026, 0.9903]]
+[3, [0.06227549698722651, 0.984], [0.04491061173238231, 0.9885], [0.056753739078505165, 0.9865]]
+[3, [0.04357404393173747, 0.9886], [0.032666340938145, 0.9917], [0.043373303221856986, 0.9871]]
+[6, [0.032787711976140416, 0.9908], [0.03401464335607488, 0.9916], [0.04163132763210451, 0.9886]]
+[6, [0.036982327892373, 0.9902], [0.031141053781606025, 0.9925], [0.03455383910653509, 0.9914]]
+[12, [0.02365160382186732, 0.9918], [0.03100918753879705, 0.9938], [0.033422006204897846, 0.9914]]
+[18, [0.04720125111376074, 0.989], [0.05491607415644048, 0.992], [0.0375697149109481, 0.9915]]

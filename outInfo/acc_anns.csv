@@ -1,0 +1,6 @@
+ann_name,accuracy
+cnn1,0.0
+dnn_huConv,0.0
+dnn_conv,0.0
+cnn2,0.0
+dnn_conv2,0.0
